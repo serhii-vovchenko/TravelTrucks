@@ -1,0 +1,11 @@
+.wrapper {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+}
+
+.locationIcon {
+	width: 16px;
+	height: 16px;
+	fill: #101828;
+}

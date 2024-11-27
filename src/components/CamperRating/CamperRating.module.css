@@ -1,0 +1,19 @@
+.wrapper {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+}
+
+.ratingIcon {
+	width: 16px;
+	height: 16px;
+	fill: #ffc531;
+}
+
+.text {
+	color: #101828;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 1.5;
+}

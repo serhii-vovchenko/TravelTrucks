@@ -1,0 +1,35 @@
+.listItems {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	max-height: 105px;
+	overflow: hidden;
+}
+
+.item {
+	display: flex;
+	align-items: center;
+	padding: 12px 18px;
+	gap: 8px;
+	border-radius: 100px;
+	background-color: #f2f4f7;
+}
+
+.configIcon {
+	width: 20px;
+	height: 20px;
+	fill: #101828;
+}
+
+.text {
+	color: #101828;
+	text-align: center;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 1.5;
+
+	&::first-letter {
+		text-transform: uppercase;
+	}
+}
