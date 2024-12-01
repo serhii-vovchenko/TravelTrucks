@@ -1,5 +1,5 @@
 import Logo from './Logo/Logo';
-import Navbar from './NavBar/NavBar';
+import Navbar from './Navbar/Navbar';
 
 import s from './Header.module.css';
 
