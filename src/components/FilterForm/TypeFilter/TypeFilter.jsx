@@ -3,9 +3,9 @@ import { Field } from 'formik';
 import sprite from '../../../img/sprite.svg';
 
 const TypeFilter = () => {
-	const types = ['van', 'fullyIntegrated', 'alcove'];
+	const types = ['panelTruck', 'fullyIntegrated', 'alcove'];
 	const icons = {
-		van: 'van',
+		panelTruck: 'van',
 		fullyIntegrated: 'fullyIntegrated',
 		alcove: 'alcove',
 	};
