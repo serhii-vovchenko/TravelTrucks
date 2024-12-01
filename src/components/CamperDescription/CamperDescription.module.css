@@ -12,3 +12,12 @@
 	max-width: 525px;
 	flex-grow: 1;
 }
+
+.pageText {
+	color: #475467;
+	font-family: Inter;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 1.5;
+}

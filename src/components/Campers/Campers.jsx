@@ -1,4 +1,4 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import s from './Campers.module.css';
 import { campersSelect, loadingSelect } from '../../redux/selectors';
 import CamperTitle from '../CamperTitle/CamperTitle';
@@ -9,16 +9,19 @@ import CamperLocation from '../CamperLocation/CamperLocation';
 import CamperPhoto from '../CamperPhoto/CamperPhoto';
 import CamperDescription from '../CamperDescription/CamperDescription';
 import CamperConfiguration from '../CamperConfiguration/CamperConfiguration';
+import { getCamperByIdThunk } from '../../redux/operations';
+import { useNavigate } from 'react-router';
 
-const Campers = () => {
-	const isLoading = useSelector(loadingSelect);
+const Campers = ({ handleLoadMore, isLastPage }) => {
 	const campers = useSelector(campersSelect);
+	// const isLoading = useSelector(loadingSelect);
+	const dispatch = useDispatch();
+	const navigate = useNavigate();
 
-	if (isLoading) {
-		return <p>Loading...</p>;
-	}
-
-	console.log('campers: ', campers);
+	const handleCamperClick = id => {
+		dispatch(getCamperByIdThunk(id));
+		navigate(`${id}`);
+	};
 
 	return (
 		<div className={s.wrapper}>
@@ -36,9 +39,10 @@ const Campers = () => {
 						transmission,
 						engine,
 					} = camper;
+
 					return (
 						<li className={s.item} key={id}>
-							<CamperPhoto gallery={gallery} name={name} />
+							<CamperPhoto gallery={gallery[0]} name={name} />
 
 							<div className={s.detailsWrapper}>
 								<div className={s.firstGroupe}>
@@ -57,7 +61,8 @@ const Campers = () => {
 								</div>
 								<CamperDescription description={description} />
 								<CamperConfiguration camper={camper} transmission={transmission} engine={engine} />
-								<button className={s.showMoreBtn} type="button">
+
+								<button onClick={() => handleCamperClick(camper.id)} className={s.showMoreBtn}>
 									Show more
 								</button>
 							</div>
@@ -65,9 +70,11 @@ const Campers = () => {
 					);
 				})}
 			</ul>
-			<button type="button" className={s.loadMoreBtn}>
-				Load more
-			</button>
+			{!isLastPage && (
+				<button onClick={handleLoadMore} type="button" className={s.loadMoreBtn}>
+					Load more
+				</button>
+			)}
 		</div>
 	);
 };

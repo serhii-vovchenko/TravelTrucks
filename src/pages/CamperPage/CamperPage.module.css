@@ -1,0 +1,102 @@
+.wrapper {
+	padding: 48px 64px 80px;
+}
+
+.infoWrapper {
+	margin-bottom: 28px;
+}
+
+.ratingWrapper {
+	margin-top: 8px;
+	margin-bottom: 16px;
+	display: flex;
+	align-items: center;
+	gap: 16px;
+}
+
+.galleryWrapper {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: start;
+	align-items: center;
+	gap: 48px;
+	margin-bottom: 28px;
+}
+
+.lastWrapper {
+	display: flex;
+	align-items: center;
+	gap: 40px;
+	margin-top: 60px;
+	padding-bottom: 24px;
+	border-bottom: 1px solid #dadde1;
+}
+
+.detailsWrapper {
+	display: flex;
+	gap: 40px;
+	padding-top: 44px;
+}
+
+.firstColumn {
+	padding: 44px 52px;
+	width: calc((100vw - 168px) / 2);
+	border-radius: 10px;
+	background-color: #f7f7f7;
+}
+
+.secondColumn {
+	width: calc((100vw - 168px) / 2);
+	border-radius: 10px;
+	border: 1px solid #dadde1;
+	padding: 44px 57px;
+}
+.vehicleWrapper {
+	margin-top: 100px;
+}
+
+.subtitle {
+	color: #101828;
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 1.2;
+	margin-bottom: 8px;
+}
+
+.vehicleList {
+	margin-top: 24px;
+	padding-top: 24px;
+	border-top: 1px solid #dadde1;
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}
+
+.vehicleItem {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.itemText {
+	color: #101828;
+	text-align: center;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 1.5;
+}
+
+.itemText::first-letter {
+	text-transform: uppercase;
+}
+
+.formText {
+	color: #6c717b;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 1.5;
+	margin-bottom: 24px;
+}

@@ -1,4 +1,6 @@
 .wrapper {
+	display: flex;
+	flex-direction: column;
 }
 
 .campersList {
@@ -83,6 +85,7 @@
 	border: 1px solid #dadde1;
 	border-radius: 200px;
 	transition: all 0.3s ease-in-out;
+	margin: 0 auto;
 
 	&:hover {
 		border-color: #d84343;

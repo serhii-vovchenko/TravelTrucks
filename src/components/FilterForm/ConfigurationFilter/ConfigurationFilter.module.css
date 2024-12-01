@@ -1,0 +1,74 @@
+.wrapper {
+	margin-bottom: 32px;
+}
+
+.title {
+	color: #475467;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 1.5;
+	margin-bottom: 32px;
+}
+
+.label {
+	color: #101828;
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 1.2;
+	display: block;
+	padding-bottom: 24px;
+}
+
+.configList {
+	padding-top: 24px;
+	border-top: 1px solid #dadde1;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 12px;
+}
+
+.configItem {
+	width: 112px;
+	padding: 16px 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 8px;
+	cursor: pointer;
+	border: 1px solid #dadde1;
+	border-radius: 12px;
+	transition: border 0.3s, background-color 0.3s;
+}
+
+.configItem:has(.checkbox:checked) {
+	border-color: #e44848;
+}
+
+.text {
+	color: #101828;
+	text-align: center;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 1.5;
+	letter-spacing: -0.002em;
+
+	&::first-letter {
+		text-transform: uppercase;
+	}
+}
+
+.configIcon {
+	width: 32px;
+	height: 32px;
+	fill: #101828;
+}
+
+.checkbox {
+	position: absolute;
+	opacity: 0;
+	pointer-events: none;
+}

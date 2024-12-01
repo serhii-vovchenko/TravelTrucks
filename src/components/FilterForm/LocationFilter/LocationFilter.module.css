@@ -1,0 +1,42 @@
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	position: relative;
+}
+
+.label {
+	color: #6c717b;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 1.5;
+}
+
+.input {
+	width: 360px;
+	padding: 18px 20px 18px 48px;
+	border-radius: 12px;
+	background-color: #f7f7f7;
+	border: none;
+	outline: none;
+	appearance: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	cursor: pointer;
+
+	color: #6c717b;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 1.5;
+}
+
+.locationIcon {
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	fill: #6c717b;
+	top: 52px;
+	left: 20px;
+}

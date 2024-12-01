@@ -1,0 +1,31 @@
+.wrapper {
+	width: 360px;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 32px;
+}
+
+.sendBtn {
+	width: 166px;
+	padding: 16px 0;
+	justify-content: center;
+	align-items: center;
+	border-radius: 200px;
+	margin-top: 8px;
+	background-color: #e44848;
+	border: none;
+	outline: none;
+
+	color: #fff;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 1.5;
+	letter-spacing: -0.002em;
+	transition: all 0.3s ease-in-out;
+
+	&:hover {
+		background-color: #d84343;
+	}
+}
