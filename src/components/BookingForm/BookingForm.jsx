@@ -2,6 +2,7 @@ import s from './BookingForm.module.css';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import toast from 'react-hot-toast';
 import * as Yup from 'yup';
+import FlatpickrComp from '../Flatpickr/Flatpickr';
 
 const BookingForm = () => {
 	const initialValues = {
@@ -53,11 +54,10 @@ const BookingForm = () => {
 
 						<div className={s.inputWrapper}>
 							<Field
-								className={`${s.input} ${s.inputDate}`}
-								type="date"
-								id="bookingDate"
 								name="bookingDate"
-								placeholder="Booking Date*"
+								component={FlatpickrComp}
+								options={{ enableTime: true, dateFormat: 'd-m-Y' }}
+								className={s.input}
 							/>
 							<ErrorMessage name="bookingDate" component="div" className={s.error} />
 						</div>
