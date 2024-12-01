@@ -5,6 +5,7 @@ const initialState = {
 	campers: [],
 	total: null,
 	camperPage: null,
+	favorite: [],
 	loading: false,
 	error: null,
 };
@@ -16,6 +17,14 @@ const campersSlice = createSlice({
 		cleanCampers(state) {
 			state.campers = [];
 			state.camperPage = null;
+		},
+
+		addToFavorite(state, action) {
+			state.favorite.push(action.payload);
+		},
+
+		deleteFavorite(state, action) {
+			state.favorite = state.favorite.filter(id => id !== action.payload);
 		},
 	},
 	extraReducers: builder => {
@@ -61,6 +70,6 @@ const campersSlice = createSlice({
 	},
 });
 
-export const { cleanCampers } = campersSlice.actions;
+export const { cleanCampers, addToFavorite, deleteFavorite } = campersSlice.actions;
 
 export const campersReducer = campersSlice.reducer;

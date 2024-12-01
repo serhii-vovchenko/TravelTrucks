@@ -20,7 +20,7 @@ const CatalogPage = () => {
 	const [pagination, setPagination] = useState(InitialPagination);
 	const [queryParams, setQueryParams] = useState();
 
-	const isLastPage = totalPages === pagination.page;
+	const isLastPage = totalPages == null || totalPages <= pagination.page;
 
 	const handleLoadMore = () => {
 		setPagination(prev => ({ ...prev, page: prev.page + 1 }));
@@ -47,10 +47,8 @@ const CatalogPage = () => {
 		};
 
 		dispatch(cleanCampers());
-		setPagination(InitialPagination);
 		setQueryParams(query);
-
-		dispatch(getFilterCampersThunk({ ...pagination, ...query }));
+		dispatch(getFilterCampersThunk({ ...InitialPagination, ...query }));
 	};
 
 	return (

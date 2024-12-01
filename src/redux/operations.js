@@ -10,7 +10,7 @@ export const getCampersThunk = createAsyncThunk('campers', async (query, thunkAP
 
 		return data;
 	} catch (error) {
-		// console.log(error);
+		return thunkAPI.rejectWithValue(error.response?.data || error.message);
 	}
 });
 
@@ -20,6 +20,7 @@ export const getFilterCampersThunk = createAsyncThunk('camperFilter', async (que
 		return data;
 	} catch (error) {
 		toast.error('Campers not found');
+		return thunkAPI.rejectWithValue(error.response?.data || error.message);
 	}
 });
 
@@ -28,6 +29,6 @@ export const getCamperByIdThunk = createAsyncThunk('camperPage', async (id, thun
 		const { data } = await axios.get(`${PATH_API}campers/${id}`);
 		return data;
 	} catch (error) {
-		// console.log(error);
+		return thunkAPI.rejectWithValue(error.response?.data || error.message);
 	}
 });

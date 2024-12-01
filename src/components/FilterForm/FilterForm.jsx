@@ -6,6 +6,11 @@ import ConfigurationFilter from './ConfigurationFilter/ConfigurationFilter';
 import TypeFilter from './TypeFilter/TypeFilter';
 
 const FilterForm = ({ pagination, handleFilterCampers }) => {
+	const handleSubmit = (values, { resetForm }) => {
+		handleFilterCampers(values);
+		resetForm();
+	};
+
 	return (
 		<Formik
 			initialValues={{
@@ -13,8 +18,8 @@ const FilterForm = ({ pagination, handleFilterCampers }) => {
 				configurations: [],
 				form: '',
 			}}
-			onSubmit={values => {
-				handleFilterCampers(values);
+			onSubmit={(values, { resetForm }) => {
+				handleSubmit(values, { resetForm });
 			}}
 		>
 			<Form className={s.wrapper}>

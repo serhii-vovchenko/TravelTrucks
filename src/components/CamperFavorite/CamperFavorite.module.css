@@ -2,4 +2,9 @@
 	fill: #101828;
 	width: 26px;
 	height: 24px;
+	cursor: pointer;
+}
+
+.active {
+	fill: #e44848;
 }
