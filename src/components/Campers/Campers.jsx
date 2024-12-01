@@ -10,16 +10,15 @@ import CamperPhoto from '../CamperPhoto/CamperPhoto';
 import CamperDescription from '../CamperDescription/CamperDescription';
 import CamperConfiguration from '../CamperConfiguration/CamperConfiguration';
 import { getCamperByIdThunk } from '../../redux/operations';
-import { useNavigate } from 'react-router';
 
 const Campers = ({ handleLoadMore, isLastPage }) => {
 	const campers = useSelector(campersSelect);
 	const dispatch = useDispatch();
-	const navigate = useNavigate();
 
 	const handleCamperClick = id => {
 		dispatch(getCamperByIdThunk(id));
-		navigate(`${id}`);
+		const url = `/catalog/${id}`;
+		window.open(url, '_blank');
 	};
 
 	return (
