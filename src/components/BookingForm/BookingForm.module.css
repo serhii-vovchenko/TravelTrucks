@@ -32,24 +32,6 @@
 .inputDate {
 }
 
-/* .inputDate::placeholder {
-	color: transparent;
-}
-
-.inputWrapper::before {
-	content: attr(Booking Date);
-	position: absolute;
-	left: 10px;
-	top: 50%;
-	transform: translateY(-50%);
-	color: gray;
-	pointer-events: none;
-}
-
-.inputDate:not(:placeholder-shown)::before {
-	content: '';
-} */
-
 .textarea {
 	width: 100%;
 	height: 118px;

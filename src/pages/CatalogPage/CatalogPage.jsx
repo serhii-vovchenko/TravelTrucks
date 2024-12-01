@@ -7,10 +7,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { getCampersThunk, getFilterCampersThunk } from '../../redux/operations';
 import { cleanCampers } from '../../redux/slice';
-import { totalCampersSelect } from '../../redux/selectors';
+import { loadingSelect, totalCampersSelect } from '../../redux/selectors';
+import Loader from '../../components/Loader/Loader';
 
 const CatalogPage = () => {
 	const dispatch = useDispatch();
+	const isLoading = useSelector(loadingSelect);
 	const totalTracks = useSelector(totalCampersSelect);
 	const totalPages = Math.ceil(totalTracks / 4);
 
@@ -57,6 +59,7 @@ const CatalogPage = () => {
 			<div className={s.wrapper}>
 				<FilterForm pagination={pagination} handleFilterCampers={handleFilterCampers} />
 				<Campers handleLoadMore={handleLoadMore} isLastPage={isLastPage} />
+				{isLoading && <Loader />}
 			</div>
 		</>
 	);

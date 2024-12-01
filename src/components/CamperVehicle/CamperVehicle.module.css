@@ -1,0 +1,40 @@
+.vehicleWrapper {
+	margin-top: 100px;
+}
+
+.subtitle {
+	color: #101828;
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 1.2;
+	margin-bottom: 8px;
+}
+
+.vehicleList {
+	margin-top: 24px;
+	padding-top: 24px;
+	border-top: 1px solid #dadde1;
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}
+
+.vehicleItem {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.itemText {
+	color: #101828;
+	text-align: center;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 1.5;
+}
+
+.itemText::first-letter {
+	text-transform: uppercase;
+}

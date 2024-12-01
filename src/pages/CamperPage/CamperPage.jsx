@@ -10,12 +10,21 @@ import CamperPhoto from '../../components/CamperPhoto/CamperPhoto';
 import CamperDescription from '../../components/CamperDescription/CamperDescription';
 import CamperConfiguration from '../../components/CamperConfiguration/CamperConfiguration';
 import BookingForm from '../../components/BookingForm/BookingForm';
+import Loader from '../../components/Loader/Loader';
+import CamperVehicle from '../../components/CamperVehicle/CamperVehicle';
+import { useState } from 'react';
+import CamperReviews from '../../components/CamperReviews/CamperReviews';
 
 const CamperPage = () => {
 	const camper = useSelector(camperPageSelect);
+	const [features, setFeatures] = useState(true);
+
+	const handleClickToFeatures = () => {
+		setFeatures(!features);
+	};
 
 	if (!camper) {
-		return <p>Loading camper data...</p>;
+		return <Loader />;
 	}
 
 	const {
@@ -57,44 +66,36 @@ const CamperPage = () => {
 				<CamperDescription description={description} customClass={'page'} />
 
 				<div className={s.lastWrapper}>
-					<p>Features</p>
-					<p>Reviews</p>
+					<p
+						onClick={handleClickToFeatures}
+						className={`${s.options} ${features && s.activeOptions}`}
+					>
+						Features
+					</p>
+					<p
+						onClick={handleClickToFeatures}
+						className={`${s.options} ${!features && s.activeOptions}`}
+					>
+						Reviews
+					</p>
 				</div>
 				<div className={s.detailsWrapper}>
-					<div className={s.firstColumn}>
-						<CamperConfiguration engine={engine} transmission={transmission} camper={camper} />
-
-						<div className={s.vehicleWrapper}>
-							<h3 className={s.subtitle}>Vehicle details</h3>
-
-							<ul className={s.vehicleList}>
-								<li className={s.vehicleItem}>
-									<p className={s.itemText}>Form</p>
-									<p className={s.itemText}>{form}</p>
-								</li>
-								<li className={s.vehicleItem}>
-									<p className={s.itemText}>Length</p>
-									<p className={s.itemText}>{length}</p>
-								</li>
-								<li className={s.vehicleItem}>
-									<p className={s.itemText}>Width</p>
-									<p className={s.itemText}>{width}</p>
-								</li>
-								<li className={s.vehicleItem}>
-									<p className={s.itemText}>Height</p>
-									<p className={s.itemText}>{height}</p>
-								</li>
-								<li className={s.vehicleItem}>
-									<p className={s.itemText}>Tank</p>
-									<p className={s.itemText}>{tank}</p>
-								</li>
-								<li className={s.vehicleItem}>
-									<p className={s.itemText}>Consumption</p>
-									<p className={s.itemText}>{consumption}</p>
-								</li>
-							</ul>
+					{features ? (
+						<div className={s.firstColumn}>
+							<CamperConfiguration engine={engine} transmission={transmission} camper={camper} />
+							<CamperVehicle
+								form={form}
+								length={length}
+								width={width}
+								height={height}
+								tank={tank}
+								consumption={consumption}
+							/>
 						</div>
-					</div>
+					) : (
+						<CamperReviews reviews={reviews} />
+					)}
+
 					<div className={s.secondColumn}>
 						<h3 className={s.subtitle}>Book your campervan now</h3>
 						<p className={s.formText}>Stay connected! We are always ready to help you.</p>

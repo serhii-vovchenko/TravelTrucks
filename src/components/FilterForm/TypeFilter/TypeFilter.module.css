@@ -21,7 +21,7 @@
 
 .typeItem {
 	width: 112px;
-	padding: 16px 0;
+	height: 96px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;

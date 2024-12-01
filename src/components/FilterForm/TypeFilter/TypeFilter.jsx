@@ -22,7 +22,7 @@ const TypeFilter = () => {
 							<svg className={s.typeIcon} width="32" height="32">
 								<use href={`${sprite}#icon-${icons[type]}`} />
 							</svg>
-							<p className={s.text}>{type}</p>
+							<p className={s.text}>{type === 'fullyIntegrated' ? 'fully Integrated' : type}</p>
 						</label>
 					</li>
 				))}

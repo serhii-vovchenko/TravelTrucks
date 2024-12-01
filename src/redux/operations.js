@@ -1,14 +1,16 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import toast from 'react-hot-toast';
 
 const PATH_API = 'https://66b1f8e71ca8ad33d4f5f63e.mockapi.io/';
 
 export const getCampersThunk = createAsyncThunk('campers', async (query, thunkAPI) => {
 	try {
 		const { data } = await axios.get(`${PATH_API}campers`, { params: { ...query } });
+
 		return data;
 	} catch (error) {
-		console.log(error);
+		// console.log(error);
 	}
 });
 
@@ -17,7 +19,7 @@ export const getFilterCampersThunk = createAsyncThunk('camperFilter', async (que
 		const { data } = await axios.get(`${PATH_API}campers`, { params: { ...query } });
 		return data;
 	} catch (error) {
-		console.log(error);
+		toast.error('Campers not found');
 	}
 });
 
@@ -26,6 +28,6 @@ export const getCamperByIdThunk = createAsyncThunk('camperPage', async (id, thun
 		const { data } = await axios.get(`${PATH_API}campers/${id}`);
 		return data;
 	} catch (error) {
-		console.log(error);
+		// console.log(error);
 	}
 });

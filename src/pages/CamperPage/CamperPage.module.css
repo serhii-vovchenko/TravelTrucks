@@ -32,6 +32,27 @@
 	border-bottom: 1px solid #dadde1;
 }
 
+.options {
+	display: block;
+	color: #101828;
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 1.2;
+	cursor: pointer;
+	position: relative;
+}
+
+.activeOptions::after {
+	content: '';
+	display: block;
+	width: 100%;
+	height: 5px;
+	background-color: #e44848;
+	position: absolute;
+	bottom: -27px;
+}
+
 .detailsWrapper {
 	display: flex;
 	gap: 40px;
@@ -50,46 +71,6 @@
 	border-radius: 10px;
 	border: 1px solid #dadde1;
 	padding: 44px 57px;
-}
-.vehicleWrapper {
-	margin-top: 100px;
-}
-
-.subtitle {
-	color: #101828;
-	font-size: 20px;
-	font-style: normal;
-	font-weight: 600;
-	line-height: 1.2;
-	margin-bottom: 8px;
-}
-
-.vehicleList {
-	margin-top: 24px;
-	padding-top: 24px;
-	border-top: 1px solid #dadde1;
-	display: flex;
-	flex-direction: column;
-	gap: 16px;
-}
-
-.vehicleItem {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-}
-
-.itemText {
-	color: #101828;
-	text-align: center;
-	font-size: 16px;
-	font-style: normal;
-	font-weight: 500;
-	line-height: 1.5;
-}
-
-.itemText::first-letter {
-	text-transform: uppercase;
 }
 
 .formText {

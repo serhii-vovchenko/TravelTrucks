@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import s from './Campers.module.css';
-import { campersSelect, loadingSelect } from '../../redux/selectors';
+import { campersSelect } from '../../redux/selectors';
 import CamperTitle from '../CamperTitle/CamperTitle';
 import CamperPrice from '../CamperPrice/CamperPrice';
 import CamperFavorite from '../CamperFavorite/CamperFavorite';
@@ -14,7 +14,6 @@ import { useNavigate } from 'react-router';
 
 const Campers = ({ handleLoadMore, isLastPage }) => {
 	const campers = useSelector(campersSelect);
-	// const isLoading = useSelector(loadingSelect);
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 
@@ -43,7 +42,6 @@ const Campers = ({ handleLoadMore, isLastPage }) => {
 					return (
 						<li className={s.item} key={id}>
 							<CamperPhoto gallery={gallery[0]} name={name} />
-
 							<div className={s.detailsWrapper}>
 								<div className={s.firstGroupe}>
 									<div className={s.titleBox}>

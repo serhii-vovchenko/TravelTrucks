@@ -1,20 +1,8 @@
 import s from './ConfigurationFilter.module.css';
 import { Field } from 'formik';
 import sprite from '../../../img/sprite.svg';
-// import { useState } from 'react';
 
 const ConfigurationFilter = ({ campers }) => {
-	// const [isChecked, setIsChecked] = useState(false);
-
-	// const getUniqueConfigurations = campers => {
-	// 	const allConfigurations = campers?.flatMap(camper => {
-	// 		const configuration = Object.keys(camper).filter(key => camper[key] === true);
-	// 		return [camper.transmission, camper.engine, ...configuration];
-	// 	});
-	// 	return [...new Set(allConfigurations)];
-	// };
-
-	// const uniqueConfigurations = getUniqueConfigurations(campers);
 	const uniqueConfigurations = [
 		'AC',
 		'kitchen',

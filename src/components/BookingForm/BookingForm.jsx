@@ -1,5 +1,6 @@
 import s from './BookingForm.module.css';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
+import toast from 'react-hot-toast';
 import * as Yup from 'yup';
 
 const BookingForm = () => {
@@ -21,8 +22,8 @@ const BookingForm = () => {
 	});
 
 	const handleSubmit = (values, { resetForm }) => {
-		console.log('Submitted values:', values);
-		resetForm(); // Очищаємо форму після успішної відправки
+		toast.success('Your reservation is confirmed.');
+		resetForm();
 	};
 
 	return (

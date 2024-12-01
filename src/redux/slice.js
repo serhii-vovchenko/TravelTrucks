@@ -4,7 +4,7 @@ import { getCampersThunk, getCamperByIdThunk, getFilterCampersThunk } from './op
 const initialState = {
 	campers: [],
 	total: null,
-	// camperPage: null,
+	camperPage: null,
 	loading: false,
 	error: null,
 };
@@ -53,6 +53,7 @@ const campersSlice = createSlice({
 					getCamperByIdThunk.rejected
 				),
 				(state, action) => {
+					state.total = null;
 					state.loading = false;
 					state.error = action.payload;
 				}
