@@ -10,8 +10,6 @@ const CamperFavorite = ({ camper }) => {
 
 	const isFavorite = favorite?.includes(camper.id);
 
-	console.log('favorite', isFavorite);
-
 	const handleToFavorite = camper => {
 		if (isFavorite) {
 			dispatch(deleteFavorite(camper.id));
