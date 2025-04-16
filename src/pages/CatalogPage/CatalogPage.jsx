@@ -19,6 +19,7 @@ const CatalogPage = () => {
 	const InitialPagination = { page: 1, limit: 4 };
 	const [pagination, setPagination] = useState(InitialPagination);
 	const [queryParams, setQueryParams] = useState();
+	const [filterIsVisible, setFilterIsVisible] = useState(window.innerWidth > 1440);
 
 	const isLastPage = totalPages == null || totalPages <= pagination.page;
 
@@ -28,11 +29,30 @@ const CatalogPage = () => {
 
 	useEffect(() => {
 		dispatch(cleanCampers());
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	useEffect(() => {
 		dispatch(getCampersThunk({ ...pagination, ...queryParams }));
-	}, [pagination]);
+	}, [pagination, queryParams, dispatch]);
+
+	useEffect(() => {
+		const handleResize = () => {
+			const isLarge = window.innerWidth > 1440;
+			setFilterIsVisible(isLarge ? true : false);
+		};
+
+		window.addEventListener('resize', handleResize);
+		handleResize();
+
+		return () => window.removeEventListener('resize', handleResize);
+	}, []);
+
+	const isSmallScreen = window.innerWidth <= 1440;
+
+	const handleOpenFilter = () => {
+		setFilterIsVisible(!filterIsVisible);
+	};
 
 	const handleFilterCampers = values => {
 		const configurations = values.configurations.reduce((acc, config) => {
@@ -55,7 +75,14 @@ const CatalogPage = () => {
 		<>
 			<Header />
 			<div className={s.wrapper}>
-				<FilterForm pagination={pagination} handleFilterCampers={handleFilterCampers} />
+				{isSmallScreen && (
+					<button onClick={handleOpenFilter} className={s.filterButton} type="button">
+						Filter
+					</button>
+				)}
+				{filterIsVisible && (
+					<FilterForm pagination={pagination} handleFilterCampers={handleFilterCampers} />
+				)}
 				<Campers handleLoadMore={handleLoadMore} isLastPage={isLastPage} />
 				{isLoading && <Loader />}
 			</div>

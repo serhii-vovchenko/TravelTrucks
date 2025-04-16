@@ -1,5 +1,5 @@
 .wrapper {
-	padding: 48px 64px 80px;
+	padding: 24px 16px 40px;
 }
 
 .infoWrapper {
@@ -55,22 +55,21 @@
 
 .detailsWrapper {
 	display: flex;
+	flex-direction: column;
 	gap: 40px;
 	padding-top: 44px;
 }
 
 .firstColumn {
-	padding: 44px 52px;
-	width: calc((100vw - 168px) / 2);
+	padding: 16px;
 	border-radius: 10px;
 	background-color: #f7f7f7;
 }
 
 .secondColumn {
-	width: calc((100vw - 168px) / 2);
 	border-radius: 10px;
 	border: 1px solid #dadde1;
-	padding: 44px 57px;
+	padding: 16px;
 }
 
 .formText {
@@ -80,4 +79,39 @@
 	font-weight: 400;
 	line-height: 1.5;
 	margin-bottom: 24px;
+}
+
+@media screen and (min-width: 768px) {
+	.detailsWrapper {
+		flex-direction: row;
+		gap: 20px;
+	}
+
+	.firstColumn {
+		width: calc((100vw - 52px) / 2);
+	}
+
+	.secondColumn {
+		width: calc((100vw - 52px) / 2);
+	}
+}
+
+@media screen and (min-width: 1440px) {
+	.wrapper {
+		padding: 48px 64px 80px;
+		max-width: 1920px;
+		margin: 0 auto;
+	}
+
+	.firstColumn {
+		padding: 44px 52px;
+		width: calc((100vw - 168px) / 2);
+		max-width: 876px;
+	}
+
+	.secondColumn {
+		width: calc((100vw - 168px) / 2);
+		padding: 44px 57px;
+		max-width: 876px;
+	}
 }

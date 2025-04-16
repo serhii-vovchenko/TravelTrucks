@@ -1,7 +1,23 @@
 .wrapper {
-	display: flex;
-	align-items: center;
-	gap: calc((100vw - 535px) / 2);
-	padding: 24px 64px;
 	background-color: #f7f7f7;
+}
+
+.headerContainer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 8px;
+	padding: 12px;
+	max-width: 1920px;
+	margin: 0 auto;
+}
+
+@media screen and (min-width: 768px) {
+	.headerContainer {
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+		padding: 24px 64px;
+		background-color: #f7f7f7;
+	}
 }

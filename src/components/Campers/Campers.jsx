@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import s from './Campers.module.css';
-import { campersSelect, loadingSelect } from '../../redux/selectors';
+import { campersSelect } from '../../redux/selectors';
 import CamperTitle from '../CamperTitle/CamperTitle';
 import CamperPrice from '../CamperPrice/CamperPrice';
 import CamperFavorite from '../CamperFavorite/CamperFavorite';
@@ -10,19 +10,18 @@ import CamperPhoto from '../CamperPhoto/CamperPhoto';
 import CamperDescription from '../CamperDescription/CamperDescription';
 import CamperConfiguration from '../CamperConfiguration/CamperConfiguration';
 import { getCamperByIdThunk } from '../../redux/operations';
+import { useNavigate } from 'react-router';
 
 const Campers = ({ handleLoadMore, isLastPage }) => {
 	const campers = useSelector(campersSelect);
-	const isLoading = useSelector(loadingSelect);
+	const navigate = useNavigate();
 	const dispatch = useDispatch();
 
-	const handleCamperClick = id => {
+	const handleCamperClick = async id => {
 		dispatch(getCamperByIdThunk(id));
 
-		if (!isLoading) {
-			const url = `/catalog/${id}`;
-			window.open(url, '_blank');
-		}
+		await dispatch(getCamperByIdThunk(id));
+		navigate(`/catalog/${id}`);
 	};
 
 	return (

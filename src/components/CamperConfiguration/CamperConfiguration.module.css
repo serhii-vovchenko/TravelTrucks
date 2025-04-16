@@ -2,7 +2,6 @@
 	display: flex;
 	flex-wrap: wrap;
 	gap: 8px;
-	max-height: 105px;
 	overflow: hidden;
 }
 

@@ -1,5 +1,5 @@
 .vehicleWrapper {
-	margin-top: 100px;
+	margin-top: 40px;
 }
 
 .subtitle {
@@ -37,4 +37,10 @@
 
 .itemText::first-letter {
 	text-transform: uppercase;
+}
+
+@media screen and (min-width: 1440px) {
+	.vehicleWrapper {
+		margin-top: 100px;
+	}
 }

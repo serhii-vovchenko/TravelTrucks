@@ -6,8 +6,10 @@ import s from './Header.module.css';
 const Header = () => {
 	return (
 		<header className={s.wrapper}>
-			<Logo />
-			<Navbar />
+			<div className={s.headerContainer}>
+				<Logo />
+				<Navbar />
+			</div>
 		</header>
 	);
 };

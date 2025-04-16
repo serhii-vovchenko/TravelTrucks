@@ -1,9 +1,11 @@
 .wrapper {
-	width: 360px;
+	position: absolute;
+	width: calc(100% - 32px);
+	background-color: #fff;
 	height: 100%;
 	display: flex;
 	flex-direction: column;
-	gap: 32px;
+	gap: 16px;
 }
 
 .sendBtn {
@@ -17,6 +19,8 @@
 	border: none;
 	outline: none;
 
+	margin: 0 auto;
+
 	color: #fff;
 	font-size: 16px;
 	font-style: normal;
@@ -27,5 +31,23 @@
 
 	&:hover {
 		background-color: #d84343;
+	}
+}
+
+@media screen and (min-width: 768px) {
+	.wrapper {
+		width: 360px;
+		gap: 32px;
+		padding-right: 32px;
+		border-right: 2px solid #dadde1;
+		border-radius: 0 20px 20px 0;
+	}
+}
+
+@media screen and (min-width: 1440px) {
+	.wrapper {
+		position: static;
+		flex-shrink: 0;
+		margin-left: auto;
 	}
 }
